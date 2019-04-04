@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>trajminer.similarity.EDR &#8212; trajminer 0.1.0.a1 documentation</title>
+    <title>trajminer.similarity.MUITAS &#8212; trajminer 0.1.0.a1 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -14,8 +14,8 @@
     <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="trajminer.similarity.LCSS" href="trajminer.similarity.LCSS.html" />
-    <link rel="prev" title="trajminer.clustering.KMedoids" href="trajminer.clustering.KMedoids.html" />
+    <link rel="next" title="trajminer.similarity.pairwise_similarity" href="trajminer.similarity.pairwise_similarity.html" />
+    <link rel="prev" title="trajminer.similarity.MSM" href="trajminer.similarity.MSM.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -42,32 +42,38 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="trajminer-similarity-edr">
-<h1><a class="reference internal" href="../classes.html#module-trajminer.similarity" title="trajminer.similarity"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trajminer.similarity</span></code></a>.EDR<a class="headerlink" href="#trajminer-similarity-edr" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="trajminer-similarity-muitas">
+<h1><a class="reference internal" href="../classes.html#module-trajminer.similarity" title="trajminer.similarity"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trajminer.similarity</span></code></a>.MUITAS<a class="headerlink" href="#trajminer-similarity-muitas" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="trajminer.similarity.EDR">
-<em class="property">class </em><code class="descclassname">trajminer.similarity.</code><code class="descname">EDR</code><span class="sig-paren">(</span><em>dist_functions</em>, <em>thresholds</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.similarity.EDR" title="Permalink to this definition">¶</a></dt>
-<dd><p>Edit Distance on Real sequence.</p>
+<dt id="trajminer.similarity.MUITAS">
+<em class="property">class </em><code class="descclassname">trajminer.similarity.</code><code class="descname">MUITAS</code><span class="sig-paren">(</span><em>dist_functions</em>, <em>thresholds</em>, <em>features</em>, <em>weights</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.similarity.MUITAS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiple-Aspect Trajectory Similarity Measure.</p>
 <dl class="simple">
 <dt>dist_functions<span class="classifier">array-like, shape (n_features)</span></dt><dd><p>Specifies the distance functions used for each trajectory
 attribute.</p>
 </dd>
 <dt>thresholds<span class="classifier">array-like, shape (n_features)</span></dt><dd><p>Specifies the thresholds used for each trajectory attribute.</p>
 </dd>
+<dt>features<span class="classifier">list or array-like</span></dt><dd><p>The groups of features (indices) to be considered for computing
+similarity (a list of arrays/lists). For each group, if at least one
+feature does not match, no score is assigned to the whole group of
+features.</p>
+</dd>
+<dt>weights<span class="classifier">array-like, shape (n_groups)</span></dt><dd><p>Specifies the weight (importance) of each feature group.</p>
+</dd>
 </dl>
-<p><a class="reference external" href="https://dl.acm.org/citation.cfm?id=1066213">Chen, L., Özsu, M. T., &amp; Oria, V. (2005, June). Robust and fast
-similarity search for moving object trajectories. In Proceedings
-of the 2005 ACM SIGMOD international conference on Management of
-data (pp. 491-502). ACM.</a></p>
+<p><a class="reference external" href="https://onlinelibrary.wiley.com/journal/14679671">Petry, L. M., Ferrero, C. A., Alvares, L. O., Renso, C., &amp; Bogorny, V.
+(2019). Towards Semantic-Aware Multiple-Aspect Trajectory Similarity
+Measuring. Transactions in GIS (accepted), XX(X), XXX-XXX.</a></p>
 <dl class="method">
-<dt id="trajminer.similarity.EDR.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>dist_functions</em>, <em>thresholds</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.similarity.EDR.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="trajminer.similarity.MUITAS.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>dist_functions</em>, <em>thresholds</em>, <em>features</em>, <em>weights</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.similarity.MUITAS.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="trajminer.similarity.EDR.similarity">
-<code class="descname">similarity</code><span class="sig-paren">(</span><em>t1</em>, <em>t2</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.similarity.EDR.similarity" title="Permalink to this definition">¶</a></dt>
+<dt id="trajminer.similarity.MUITAS.similarity">
+<code class="descname">similarity</code><span class="sig-paren">(</span><em>t1</em>, <em>t2</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.similarity.MUITAS.similarity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the similarity score of the given trajectories.</p>
 <dl class="simple">
 <dt>t1<span class="classifier">array-like, shape (n_points, n_features)</span></dt><dd><p>Input trajectory.</p>
@@ -96,8 +102,8 @@ data (pp. 491-502). ACM.</a></p>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../classes.html">API Reference</a><ul>
-      <li>Previous: <a href="trajminer.clustering.KMedoids.html" title="previous chapter"><code class="docutils literal notranslate"><span class="pre">trajminer.clustering</span></code>.KMedoids</a></li>
-      <li>Next: <a href="trajminer.similarity.LCSS.html" title="next chapter"><code class="docutils literal notranslate"><span class="pre">trajminer.similarity</span></code>.LCSS</a></li>
+      <li>Previous: <a href="trajminer.similarity.MSM.html" title="previous chapter"><code class="docutils literal notranslate"><span class="pre">trajminer.similarity</span></code>.MSM</a></li>
+      <li>Next: <a href="trajminer.similarity.pairwise_similarity.html" title="next chapter"><code class="docutils literal notranslate"><span class="pre">trajminer.similarity</span></code>.pairwise_similarity</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -105,7 +111,7 @@ data (pp. 491-502). ACM.</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../../_sources/modules/generated/trajminer.similarity.EDR.rst.txt"
+      <li><a href="../../_sources/modules/generated/trajminer.similarity.MUITAS.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -131,7 +137,7 @@ data (pp. 491-502). ACM.</a></p>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../../_sources/modules/generated/trajminer.similarity.EDR.rst.txt"
+      <a href="../../_sources/modules/generated/trajminer.similarity.MUITAS.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

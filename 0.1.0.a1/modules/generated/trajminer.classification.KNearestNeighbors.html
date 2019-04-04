@@ -14,13 +14,23 @@
     <script type="text/javascript" src="../../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="trajminer.classification.RNNClassifier" href="trajminer.classification.RNNClassifier.html" />
-    <link rel="prev" title="API Reference" href="../classes.html" />
+    <link rel="next" title="trajminer.classification.TraClass" href="trajminer.classification.TraClass.html" />
+    <link rel="prev" title="trajminer.TrajectoryData" href="trajminer.TrajectoryData.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137701581-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-137701581-1');
+    </script>
+  
 
   </head><body>
   
@@ -36,10 +46,23 @@
 <h1><a class="reference internal" href="../classes.html#module-trajminer.classification" title="trajminer.classification"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trajminer.classification</span></code></a>.KNearestNeighbors<a class="headerlink" href="#trajminer-classification-knearestneighbors" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="trajminer.classification.KNearestNeighbors">
-<em class="property">class </em><code class="descclassname">trajminer.classification.</code><code class="descname">KNearestNeighbors</code><a class="headerlink" href="#trajminer.classification.KNearestNeighbors" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<em class="property">class </em><code class="descclassname">trajminer.classification.</code><code class="descname">KNearestNeighbors</code><span class="sig-paren">(</span><em>n_neighbors=1</em>, <em>weights='uniform'</em>, <em>measure='precomputed'</em>, <em>n_jobs=1</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.classification.KNearestNeighbors" title="Permalink to this definition">¶</a></dt>
+<dd><p>K-Nearest Neighbors Classifier.</p>
+<dl class="simple">
+<dt>n_neighbors<span class="classifier">int (default=1)</span></dt><dd><p>Number of neighbors to use for queries.</p>
+</dd>
+<dt>weights<span class="classifier">str or callable (default=’uniform’)</span></dt><dd><p>Weight function used in prediction. See the scikit-learn API fo
+details.</p>
+</dd>
+<dt>measure<span class="classifier">SimilarityMeasure object or str (default=’precomputed’)</span></dt><dd><p>The similarity measure to use for computing similarities (see
+<a class="reference internal" href="../classes.html#module-trajminer.similarity" title="trajminer.similarity"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trajminer.similarity</span></code></a>) or the string ‘precomputed’.</p>
+</dd>
+<dt>n_jobs<span class="classifier">int (default=1)</span></dt><dd><p>The number of parallel jobs.</p>
+</dd>
+</dl>
+<dl class="method">
 <dt id="trajminer.classification.KNearestNeighbors.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.classification.KNearestNeighbors.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>n_neighbors=1</em>, <em>weights='uniform'</em>, <em>measure='precomputed'</em>, <em>n_jobs=1</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.classification.KNearestNeighbors.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -83,40 +106,24 @@
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../../index.html">trajminer</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../classes.html">API Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../classes.html#module-trajminer.classification"><code class="docutils literal notranslate"><span class="pre">trajminer.classification</span></code>: Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../classes.html#module-trajminer.clustering"><code class="docutils literal notranslate"><span class="pre">trajminer.clustering</span></code>: Clustering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../classes.html#module-trajminer.similarity"><code class="docutils literal notranslate"><span class="pre">trajminer.similarity</span></code>: Similarity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../classes.html#module-trajminer.utils"><code class="docutils literal notranslate"><span class="pre">trajminer.utils</span></code>: Utils</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../classes.html#module-trajminer.preprocessing"><code class="docutils literal notranslate"><span class="pre">trajminer.preprocessing</span></code>: Preprocessing</a></li>
-</ul>
-</li>
-</ul>
-
-<div class="relations">
+        <div class="sphinxsidebarwrapper"><div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../classes.html">API Reference</a><ul>
-      <li>Previous: <a href="../classes.html" title="previous chapter">API Reference</a></li>
-      <li>Next: <a href="trajminer.classification.RNNClassifier.html" title="next chapter"><code class="docutils literal notranslate"><span class="pre">trajminer.classification</span></code>.RNNClassifier</a></li>
+      <li>Previous: <a href="trajminer.TrajectoryData.html" title="previous chapter"><code class="docutils literal notranslate"><span class="pre">trajminer</span></code>.TrajectoryData</a></li>
+      <li>Next: <a href="trajminer.classification.TraClass.html" title="next chapter"><code class="docutils literal notranslate"><span class="pre">trajminer.classification</span></code>.TraClass</a></li>
   </ul></li>
   </ul></li>
 </ul>
 </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/modules/generated/trajminer.classification.KNearestNeighbors.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <div class="searchformwrapper">
@@ -127,20 +134,12 @@
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2018, Lucas.
+      &copy;2018-2019, The Trajminer Developers.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.0b1</a>

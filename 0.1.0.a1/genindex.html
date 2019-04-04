@@ -20,6 +20,16 @@
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137701581-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-137701581-1');
+    </script>
+  
 
   </head><body>
   
@@ -41,6 +51,7 @@
  | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
  | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#K"><strong>K</strong></a>
@@ -48,7 +59,6 @@
  | <a href="#M"><strong>M</strong></a>
  | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
- | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
  
@@ -59,7 +69,7 @@
       <li><a href="modules/generated/trajminer.classification.KNearestNeighbors.html#trajminer.classification.KNearestNeighbors.__init__">__init__() (trajminer.classification.KNearestNeighbors method)</a>
 
       <ul>
-        <li><a href="modules/generated/trajminer.classification.RNNClassifier.html#trajminer.classification.RNNClassifier.__init__">(trajminer.classification.RNNClassifier method)</a>
+        <li><a href="modules/generated/trajminer.TrajectoryData.html#trajminer.TrajectoryData.__init__">(trajminer.TrajectoryData method)</a>
 </li>
         <li><a href="modules/generated/trajminer.classification.TraClass.html#trajminer.classification.TraClass.__init__">(trajminer.classification.TraClass method)</a>
 </li>
@@ -71,11 +81,15 @@
 </li>
         <li><a href="modules/generated/trajminer.preprocessing.OneHotEncoder.html#trajminer.preprocessing.OneHotEncoder.__init__">(trajminer.preprocessing.OneHotEncoder method)</a>
 </li>
+        <li><a href="modules/generated/trajminer.preprocessing.TrajectorySegmenter.html#trajminer.preprocessing.TrajectorySegmenter.__init__">(trajminer.preprocessing.TrajectorySegmenter method)</a>
+</li>
         <li><a href="modules/generated/trajminer.similarity.EDR.html#trajminer.similarity.EDR.__init__">(trajminer.similarity.EDR method)</a>
 </li>
         <li><a href="modules/generated/trajminer.similarity.LCSS.html#trajminer.similarity.LCSS.__init__">(trajminer.similarity.LCSS method)</a>
 </li>
         <li><a href="modules/generated/trajminer.similarity.MSM.html#trajminer.similarity.MSM.__init__">(trajminer.similarity.MSM method)</a>
+</li>
+        <li><a href="modules/generated/trajminer.similarity.MUITAS.html#trajminer.similarity.MUITAS.__init__">(trajminer.similarity.MUITAS method)</a>
 </li>
         <li><a href="modules/generated/trajminer.utils.CSVTrajectoryLoader.html#trajminer.utils.CSVTrajectoryLoader.__init__">(trajminer.utils.CSVTrajectoryLoader method)</a>
 </li>
@@ -132,12 +146,16 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules/generated/trajminer.classification.RNNClassifier.html#trajminer.classification.RNNClassifier.fit">fit() (trajminer.classification.RNNClassifier method)</a>
-
-      <ul>
-        <li><a href="modules/generated/trajminer.preprocessing.OneHotEncoder.html#trajminer.preprocessing.OneHotEncoder.fit">(trajminer.preprocessing.OneHotEncoder method)</a>
+      <li><a href="modules/generated/trajminer.preprocessing.filter_duplicate_points.html#trajminer.preprocessing.filter_duplicate_points">filter_duplicate_points() (in module trajminer.preprocessing)</a>
 </li>
-      </ul></li>
+      <li><a href="modules/generated/trajminer.preprocessing.filter_label_size.html#trajminer.preprocessing.filter_label_size">filter_label_size() (in module trajminer.preprocessing)</a>
+</li>
+      <li><a href="modules/generated/trajminer.preprocessing.filter_trajectory_length.html#trajminer.preprocessing.filter_trajectory_length">filter_trajectory_length() (in module trajminer.preprocessing)</a>
+</li>
+      <li><a href="modules/generated/trajminer.preprocessing.OneHotEncoder.html#trajminer.preprocessing.OneHotEncoder.fit">fit() (trajminer.preprocessing.OneHotEncoder method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/generated/trajminer.clustering.AgglomerativeClustering.html#trajminer.clustering.AgglomerativeClustering.fit_predict">fit_predict() (trajminer.clustering.AgglomerativeClustering method)</a>
 
       <ul>
@@ -146,9 +164,31 @@
         <li><a href="modules/generated/trajminer.clustering.KMedoids.html#trajminer.clustering.KMedoids.fit_predict">(trajminer.clustering.KMedoids method)</a>
 </li>
       </ul></li>
+      <li><a href="modules/generated/trajminer.preprocessing.OneHotEncoder.html#trajminer.preprocessing.OneHotEncoder.fit_transform">fit_transform() (trajminer.preprocessing.OneHotEncoder method)</a>
+
+      <ul>
+        <li><a href="modules/generated/trajminer.preprocessing.TrajectorySegmenter.html#trajminer.preprocessing.TrajectorySegmenter.fit_transform">(trajminer.preprocessing.TrajectorySegmenter method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/generated/trajminer.TrajectoryData.html#trajminer.TrajectoryData.get_attributes">get_attributes() (trajminer.TrajectoryData method)</a>
+</li>
+      <li><a href="modules/generated/trajminer.TrajectoryData.html#trajminer.TrajectoryData.get_label">get_label() (trajminer.TrajectoryData method)</a>
+</li>
+      <li><a href="modules/generated/trajminer.TrajectoryData.html#trajminer.TrajectoryData.get_labels">get_labels() (trajminer.TrajectoryData method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules/generated/trajminer.preprocessing.OneHotEncoder.html#trajminer.preprocessing.OneHotEncoder.fit_transform">fit_transform() (trajminer.preprocessing.OneHotEncoder method)</a>
+      <li><a href="modules/generated/trajminer.TrajectoryData.html#trajminer.TrajectoryData.get_tids">get_tids() (trajminer.TrajectoryData method)</a>
+</li>
+      <li><a href="modules/generated/trajminer.TrajectoryData.html#trajminer.TrajectoryData.get_trajectories">get_trajectories() (trajminer.TrajectoryData method)</a>
+</li>
+      <li><a href="modules/generated/trajminer.TrajectoryData.html#trajminer.TrajectoryData.get_trajectory">get_trajectory() (trajminer.TrajectoryData method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -188,6 +228,8 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/generated/trajminer.TrajectoryData.html#trajminer.TrajectoryData.length">length() (trajminer.TrajectoryData method)</a>
+</li>
       <li><a href="modules/generated/trajminer.utils.CSVTrajectoryLoader.html#trajminer.utils.CSVTrajectoryLoader.load">load() (trajminer.utils.CSVTrajectoryLoader method)</a>
 </li>
   </ul></td>
@@ -196,7 +238,13 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/generated/trajminer.TrajectoryData.html#trajminer.TrajectoryData.merge">merge() (trajminer.TrajectoryData method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/generated/trajminer.similarity.MSM.html#trajminer.similarity.MSM">MSM (class in trajminer.similarity)</a>
+</li>
+      <li><a href="modules/generated/trajminer.similarity.MUITAS.html#trajminer.similarity.MUITAS">MUITAS (class in trajminer.similarity)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -214,22 +262,14 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/generated/trajminer.similarity.pairwise_similarity.html#trajminer.similarity.pairwise_similarity">pairwise_similarity() (in module trajminer.similarity)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/generated/trajminer.classification.KNearestNeighbors.html#trajminer.classification.KNearestNeighbors.predict">predict() (trajminer.classification.KNearestNeighbors method)</a>
 
       <ul>
-        <li><a href="modules/generated/trajminer.classification.RNNClassifier.html#trajminer.classification.RNNClassifier.predict">(trajminer.classification.RNNClassifier method)</a>
-</li>
         <li><a href="modules/generated/trajminer.classification.TraClass.html#trajminer.classification.TraClass.predict">(trajminer.classification.TraClass method)</a>
 </li>
       </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="R">R</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="modules/generated/trajminer.classification.RNNClassifier.html#trajminer.classification.RNNClassifier">RNNClassifier (class in trajminer.classification)</a>
-</li>
   </ul></td>
 </tr></table>
 
@@ -239,13 +279,9 @@
       <li><a href="modules/generated/trajminer.classification.KNearestNeighbors.html#trajminer.classification.KNearestNeighbors.score">score() (trajminer.classification.KNearestNeighbors method)</a>
 
       <ul>
-        <li><a href="modules/generated/trajminer.classification.RNNClassifier.html#trajminer.classification.RNNClassifier.score">(trajminer.classification.RNNClassifier method)</a>
-</li>
         <li><a href="modules/generated/trajminer.classification.TraClass.html#trajminer.classification.TraClass.score">(trajminer.classification.TraClass method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/generated/trajminer.similarity.EDR.html#trajminer.similarity.EDR.similarity">similarity() (trajminer.similarity.EDR method)</a>
 
       <ul>
@@ -253,7 +289,13 @@
 </li>
         <li><a href="modules/generated/trajminer.similarity.MSM.html#trajminer.similarity.MSM.similarity">(trajminer.similarity.MSM method)</a>
 </li>
+        <li><a href="modules/generated/trajminer.similarity.MUITAS.html#trajminer.similarity.MUITAS.similarity">(trajminer.similarity.MUITAS method)</a>
+</li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/generated/trajminer.TrajectoryData.html#trajminer.TrajectoryData.stats">stats() (trajminer.TrajectoryData method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -262,12 +304,18 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="modules/generated/trajminer.classification.TraClass.html#trajminer.classification.TraClass">TraClass (class in trajminer.classification)</a>
 </li>
-      <li><a href="modules/classes.html#module-trajminer.classification">trajminer.classification (module)</a>
+      <li><a href="modules/generated/trajminer.TrajectoryData.html#trajminer.TrajectoryData">TrajectoryData (class in trajminer)</a>
 </li>
-      <li><a href="modules/classes.html#module-trajminer.clustering">trajminer.clustering (module)</a>
+      <li><a href="modules/generated/trajminer.preprocessing.TrajectorySegmenter.html#trajminer.preprocessing.TrajectorySegmenter">TrajectorySegmenter (class in trajminer.preprocessing)</a>
+</li>
+      <li><a href="modules/classes.html#module-trajminer">trajminer (module)</a>
+</li>
+      <li><a href="modules/classes.html#module-trajminer.classification">trajminer.classification (module)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/classes.html#module-trajminer.clustering">trajminer.clustering (module)</a>
+</li>
       <li><a href="modules/classes.html#module-trajminer.preprocessing">trajminer.preprocessing (module)</a>
 </li>
       <li><a href="modules/classes.html#module-trajminer.similarity">trajminer.similarity (module)</a>
@@ -286,23 +334,7 @@
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">trajminer</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="modules/classes.html">API Reference</a></li>
-</ul>
-
-<div class="relations">
+        <div class="sphinxsidebarwrapper"><div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
@@ -319,20 +351,12 @@
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2018, Lucas.
+      &copy;2018-2019, The Trajminer Developers.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.0b1</a>

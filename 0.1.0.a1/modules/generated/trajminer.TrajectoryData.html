@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>trajminer.TrajectoryData &#8212; trajminer 0.1.0.a1 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="trajminer.classification.KNearestNeighbors" href="trajminer.classification.KNearestNeighbors.html" />
+    <link rel="prev" title="API Reference" href="../classes.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137701581-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-137701581-1');
+    </script>
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="trajminer-trajectorydata">
+<h1><a class="reference internal" href="../classes.html#module-trajminer" title="trajminer"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trajminer</span></code></a>.TrajectoryData<a class="headerlink" href="#trajminer-trajectorydata" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="trajminer.TrajectoryData">
+<em class="property">class </em><code class="descclassname">trajminer.</code><code class="descname">TrajectoryData</code><span class="sig-paren">(</span><em>attributes</em>, <em>data</em>, <em>tids</em>, <em>labels=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.TrajectoryData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trajectory data wrapper.</p>
+<dl class="simple">
+<dt>attributes<span class="classifier">array-like</span></dt><dd><p>The names of attributes/features describing trajectory points in the
+dataset.</p>
+</dd>
+<dt>data<span class="classifier">array-like, shape: (n_trajectories, n_points, n_features)</span></dt><dd><p>The trajectory data.</p>
+</dd>
+<dt>tids<span class="classifier">array-like</span></dt><dd><p>The corresponding trajectory IDs of trajectories in <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
+</dd>
+<dt>labels<span class="classifier">array-like (default=None)</span></dt><dd><p>The corresponding labels of trajectories in <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="trajminer.TrajectoryData.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>attributes</em>, <em>data</em>, <em>tids</em>, <em>labels=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.TrajectoryData.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="trajminer.TrajectoryData.get_attributes">
+<code class="descname">get_attributes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.TrajectoryData.get_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the attributes in the dataset.</p>
+<dl class="simple">
+<dt>attributes<span class="classifier">array</span></dt><dd><p>An array of length <cite>n_features</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="trajminer.TrajectoryData.get_label">
+<code class="descname">get_label</code><span class="sig-paren">(</span><em>tid</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.TrajectoryData.get_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the label for the corresponding tid.</p>
+<dl class="simple">
+<dt>tid<span class="classifier">int</span></dt><dd><p>The trajectory ID.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>label<span class="classifier">int or str</span></dt><dd><p>The corresponding label.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="trajminer.TrajectoryData.get_labels">
+<code class="descname">get_labels</code><span class="sig-paren">(</span><em>unique=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.TrajectoryData.get_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the labels of the trajectories in the dataset.</p>
+<dl class="simple">
+<dt>unique<span class="classifier">bool (default=False)</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, then the set of unique labels is returned. Otherwise,
+an array with the labels of each individual trajectory is returned.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>labels<span class="classifier">array</span></dt><dd><p>An array of length <cite>n_trajectories</cite> if <cite>unique=False</cite>, and of
+length <cite>n_labels</cite> otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="trajminer.TrajectoryData.get_tids">
+<code class="descname">get_tids</code><span class="sig-paren">(</span><em>label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.TrajectoryData.get_tids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves the trajectory IDs in the dataset.</p>
+<dl class="simple">
+<dt>label<span class="classifier">int (default=None)</span></dt><dd><p>If <cite>None</cite>, then retrieves all trajectory IDs. Otherwise, returns
+the IDs corresponding to the given label.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>attributes<span class="classifier">array</span></dt><dd><p>An array of length <cite>n_trajectories</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="trajminer.TrajectoryData.get_trajectories">
+<code class="descname">get_trajectories</code><span class="sig-paren">(</span><em>label=None</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.TrajectoryData.get_trajectories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves multiple trajectories from the dataset.</p>
+<dl class="simple">
+<dt>label<span class="classifier">int (default=None)</span></dt><dd><p>The label of the trajectories to be retrieved. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, then
+all trajectories are retrieved.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>trajectories<span class="classifier">array</span></dt><dd><p>The trajectories of the given label. If <cite>label=None</cite> or if the
+dataset does not contain labels, then all trajectories are
+returned.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="trajminer.TrajectoryData.get_trajectory">
+<code class="descname">get_trajectory</code><span class="sig-paren">(</span><em>tid</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.TrajectoryData.get_trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves a trajectory from the dataset.</p>
+<dl class="simple">
+<dt>tid<span class="classifier">int</span></dt><dd><p>The trajectory ID.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>trajectory<span class="classifier">array, shape: (n_points, n_features)</span></dt><dd><p>The corresponding trajectory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="trajminer.TrajectoryData.length">
+<code class="descname">length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.TrajectoryData.length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of trajectories in the dataset.</p>
+<dl class="simple">
+<dt>length<span class="classifier">int</span></dt><dd><p>Number of trajectories in the dataset.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="trajminer.TrajectoryData.merge">
+<code class="descname">merge</code><span class="sig-paren">(</span><em>other</em>, <em>ignore_duplicates=True</em>, <em>inplace=True</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.TrajectoryData.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges this trajectory data with another one. Notice that this
+method only works if the datasets have the same set of attributes.</p>
+<dl>
+<dt>other<span class="classifier"><a class="reference internal" href="#trajminer.TrajectoryData" title="trajminer.TrajectoryData"><code class="xref py py-class docutils literal notranslate"><span class="pre">trajminer.TrajectoryData</span></code></a></span></dt><dd><p>The dataset to be merged with.</p>
+</dd>
+<dt>ignore_duplicates<span class="classifier">bool (default=True)</span></dt><dd><p>If <cite>True</cite>, then trajectory IDs in <cite>other</cite> that already exist in
+<cite>self</cite> are ignored. Otherwise, raises an exception when a duplicate
+is found.</p>
+</dd>
+<dt>inplace<span class="classifier">bool (default=True)</span></dt><dd><p>If <cite>True</cite> modifies the current object, otherwise returns a new
+object.</p>
+</dd>
+</dl>
+<dl>
+<dt>dataset<span class="classifier"><a class="reference internal" href="#trajminer.TrajectoryData" title="trajminer.TrajectoryData"><code class="xref py py-class docutils literal notranslate"><span class="pre">trajminer.TrajectoryData</span></code></a></span></dt><dd><p>The merged dataset. If <cite>inplace=True</cite>, then returns the modified
+current object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="trajminer.TrajectoryData.stats">
+<code class="descname">stats</code><span class="sig-paren">(</span><em>print_stats=False</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.TrajectoryData.stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes statistics for the dataset.</p>
+<dl class="simple">
+<dt>print_stats<span class="classifier">bool (default=False)</span></dt><dd><p>If <cite>True</cite>, stats are printed.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>stats<span class="classifier">dict</span></dt><dd><p>A dictionary containing the dataset statistics.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clearer"></div></div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../classes.html">API Reference</a><ul>
+      <li>Previous: <a href="../classes.html" title="previous chapter">API Reference</a></li>
+      <li>Next: <a href="trajminer.classification.KNearestNeighbors.html" title="next chapter"><code class="docutils literal notranslate"><span class="pre">trajminer.classification</span></code>.KNearestNeighbors</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/modules/generated/trajminer.TrajectoryData.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018-2019, The Trajminer Developers.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.0b1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/modules/generated/trajminer.TrajectoryData.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

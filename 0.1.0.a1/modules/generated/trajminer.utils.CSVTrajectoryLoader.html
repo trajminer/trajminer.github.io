@@ -21,6 +21,16 @@
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137701581-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-137701581-1');
+    </script>
+  
 
   </head><body>
   
@@ -36,7 +46,7 @@
 <h1><a class="reference internal" href="../classes.html#module-trajminer.utils" title="trajminer.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trajminer.utils</span></code></a>.CSVTrajectoryLoader<a class="headerlink" href="#trajminer-utils-csvtrajectoryloader" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="trajminer.utils.CSVTrajectoryLoader">
-<em class="property">class </em><code class="descclassname">trajminer.utils.</code><code class="descname">CSVTrajectoryLoader</code><span class="sig-paren">(</span><em>file</em>, <em>sep='</em>, <em>'</em>, <em>tid_col='tid'</em>, <em>label_col='label'</em>, <em>drop_col=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.utils.CSVTrajectoryLoader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">trajminer.utils.</code><code class="descname">CSVTrajectoryLoader</code><span class="sig-paren">(</span><em>file</em>, <em>sep='</em>, <em>'</em>, <em>tid_col='tid'</em>, <em>label_col='label'</em>, <em>lat='lat'</em>, <em>lon='lon'</em>, <em>drop_col=[]</em>, <em>n_jobs=1</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.utils.CSVTrajectoryLoader" title="Permalink to this definition">¶</a></dt>
 <dd><p>A trajectory data loader from a CSV file.</p>
 <dl class="simple">
 <dt>file<span class="classifier">str</span></dt><dd><p>The CSV file from which to read the data.</p>
@@ -48,12 +58,31 @@
 <dt>label_col<span class="classifier">str (default=’label’)</span></dt><dd><p>The column in the CSV file corresponding to the trajectory labels. If
 <cite>None</cite>, labels are not loaded.</p>
 </dd>
+<dt>lat<span class="classifier">str (default=’lat’)</span></dt><dd><p>The column in the CSV file corresponding to the latitude of the
+trajectory points. If both the <cite>lat</cite> and <cite>lon</cite> columns are present in
+the file, they are included as a single new attribute in the loaded
+dataset.</p>
+</dd>
+<dt>lon<span class="classifier">str (default=’lon’)</span></dt><dd><p>The column in the CSV file corresponding to the longitude of the
+trajectory points. If both the <cite>lat</cite> and <cite>lon</cite> columns are present in
+the file, they are included as a single new attribute in the loaded
+dataset.</p>
+</dd>
 <dt>drop_col<span class="classifier">array-like (default=[])</span></dt><dd><p>List of columns to drop when reading the data from the file.</p>
 </dd>
+<dt>n_jobs<span class="classifier">int (default=1)</span></dt><dd><p>The number of parallel jobs.</p>
+</dd>
 </dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">trajminer.utils</span> <span class="k">import</span> <span class="n">CSVTrajectoryLoader</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loader</span> <span class="o">=</span> <span class="n">CSVTrajectoryLoader</span><span class="p">(</span><span class="s1">&#39;my_data.csv&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span><span class="o">.</span><span class="n">get_attributes</span><span class="p">()</span>
+<span class="go">[&#39;poi&#39;, &#39;day&#39;, &#39;time&#39;]</span>
+</pre></div>
+</div>
 <dl class="method">
 <dt id="trajminer.utils.CSVTrajectoryLoader.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>file</em>, <em>sep='</em>, <em>'</em>, <em>tid_col='tid'</em>, <em>label_col='label'</em>, <em>drop_col=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.utils.CSVTrajectoryLoader.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>file</em>, <em>sep='</em>, <em>'</em>, <em>tid_col='tid'</em>, <em>label_col='label'</em>, <em>lat='lat'</em>, <em>lon='lon'</em>, <em>drop_col=[]</em>, <em>n_jobs=1</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.utils.CSVTrajectoryLoader.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
 </dd></dl>
 
@@ -61,11 +90,8 @@
 <dt id="trajminer.utils.CSVTrajectoryLoader.load">
 <code class="descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.utils.CSVTrajectoryLoader.load" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads trajectories according to the specific approach.</p>
-<dl class="simple">
-<dt>data<span class="classifier">dict</span></dt><dd><p>A dictionary where key <cite>data</cite> holds the actual trajectories,
-<cite>attributes</cite> holds the attribute names, <cite>tids</cite> holds the
-corresponding trajectory IDs, and <cite>labels</cite> are the corresponding
-labels (only if data is labeled).</p>
+<dl>
+<dt>data<span class="classifier"><a class="reference internal" href="trajminer.TrajectoryData.html#trajminer.TrajectoryData" title="trajminer.TrajectoryData"><code class="xref py py-class docutils literal notranslate"><span class="pre">trajminer.TrajectoryData</span></code></a></span></dt><dd><p>A <a class="reference internal" href="trajminer.TrajectoryData.html#trajminer.TrajectoryData" title="trajminer.TrajectoryData"><code class="xref py py-class docutils literal notranslate"><span class="pre">trajminer.TrajectoryData</span></code></a> containing the loaded dataset.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -80,30 +106,7 @@ labels (only if data is labeled).</p>
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../../index.html">trajminer</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../classes.html">API Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../classes.html#module-trajminer.classification"><code class="docutils literal notranslate"><span class="pre">trajminer.classification</span></code>: Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../classes.html#module-trajminer.clustering"><code class="docutils literal notranslate"><span class="pre">trajminer.clustering</span></code>: Clustering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../classes.html#module-trajminer.similarity"><code class="docutils literal notranslate"><span class="pre">trajminer.similarity</span></code>: Similarity</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../classes.html#module-trajminer.utils"><code class="docutils literal notranslate"><span class="pre">trajminer.utils</span></code>: Utils</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../classes.html#module-trajminer.preprocessing"><code class="docutils literal notranslate"><span class="pre">trajminer.preprocessing</span></code>: Preprocessing</a></li>
-</ul>
-</li>
-</ul>
-
-<div class="relations">
+        <div class="sphinxsidebarwrapper"><div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
@@ -114,6 +117,13 @@ labels (only if data is labeled).</p>
   </ul></li>
 </ul>
 </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/modules/generated/trajminer.utils.CSVTrajectoryLoader.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <div class="searchformwrapper">
@@ -124,20 +134,12 @@ labels (only if data is labeled).</p>
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2018, Lucas.
+      &copy;2018-2019, The Trajminer Developers.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.0b1</a>

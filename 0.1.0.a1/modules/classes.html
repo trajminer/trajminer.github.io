@@ -14,13 +14,23 @@
     <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="trajminer.classification.KNearestNeighbors" href="generated/trajminer.classification.KNearestNeighbors.html" />
+    <link rel="next" title="trajminer.TrajectoryData" href="generated/trajminer.TrajectoryData.html" />
     <link rel="prev" title="trajminer’s docs" href="../index.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137701581-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-137701581-1');
+    </script>
+  
 
   </head><body>
   
@@ -35,11 +45,9 @@
   <div class="section" id="api-reference">
 <span id="api-ref"></span><h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
 <p>This is the main reference for classes and functions present in <strong>trajminer</strong>.</p>
-<div class="section" id="module-trajminer.classification">
-<span id="trajminer-classification-classification"></span><h2><a class="reference internal" href="#module-trajminer.classification" title="trajminer.classification"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trajminer.classification</span></code></a>: Classification<a class="headerlink" href="#module-trajminer.classification" title="Permalink to this headline">¶</a></h2>
-<p>Trajectory classifiers. Implementations of traditional classification
-algorithms work alongside with a trajectory similarity measure from
-<a class="reference internal" href="#module-trajminer.similarity" title="trajminer.similarity"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trajminer.similarity</span></code></a>.</p>
+<div class="section" id="module-trajminer">
+<span id="trajminer-base"></span><h2><a class="reference internal" href="#module-trajminer" title="trajminer"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trajminer</span></code></a>: Base<a class="headerlink" href="#module-trajminer" title="Permalink to this headline">¶</a></h2>
+<p>Library essential classes and resources.</p>
 <div class="section" id="classes">
 <h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-center">
@@ -48,13 +56,30 @@ algorithms work alongside with a trajectory similarity measure from
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/trajminer.classification.KNearestNeighbors.html#trajminer.classification.KNearestNeighbors" title="trajminer.classification.KNearestNeighbors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classification.KNearestNeighbors</span></code></a>()</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/trajminer.TrajectoryData.html#trajminer.TrajectoryData" title="trajminer.TrajectoryData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trajminer.TrajectoryData</span></code></a>(attributes, data, tids)</p></td>
+<td><p>Trajectory data wrapper.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/trajminer.classification.RNNClassifier.html#trajminer.classification.RNNClassifier" title="trajminer.classification.RNNClassifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classification.RNNClassifier</span></code></a>(input_shape, …)</p></td>
-<td><p>Recurrent Neural Network Classifier.</p></td>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="module-trajminer.classification">
+<span id="trajminer-classification-classification"></span><h2><a class="reference internal" href="#module-trajminer.classification" title="trajminer.classification"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trajminer.classification</span></code></a>: Classification<a class="headerlink" href="#module-trajminer.classification" title="Permalink to this headline">¶</a></h2>
+<p>Trajectory classifiers. Implementations of traditional classification
+algorithms work alongside with a trajectory similarity measure from
+<a class="reference internal" href="#module-trajminer.similarity" title="trajminer.similarity"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trajminer.similarity</span></code></a>.</p>
+<div class="section" id="id1">
+<h3>Classes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/trajminer.classification.KNearestNeighbors.html#trajminer.classification.KNearestNeighbors" title="trajminer.classification.KNearestNeighbors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classification.KNearestNeighbors</span></code></a>([…])</p></td>
+<td><p>K-Nearest Neighbors Classifier.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/trajminer.classification.TraClass.html#trajminer.classification.TraClass" title="trajminer.classification.TraClass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classification.TraClass</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/trajminer.classification.TraClass.html#trajminer.classification.TraClass" title="trajminer.classification.TraClass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">classification.TraClass</span></code></a>()</p></td>
 <td><p>TraClass: Trajectory Classification Using Hierarchical Region-Based and Trajectory-Based Clustering.</p></td>
 </tr>
 </tbody>
@@ -66,8 +91,8 @@ algorithms work alongside with a trajectory similarity measure from
 <p>Clustering algorithms for trajectories. Implementations of traditional
 clustering algorithms work alongside with a trajectory similarity measure from
 <a class="reference internal" href="#module-trajminer.similarity" title="trajminer.similarity"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trajminer.similarity</span></code></a>.</p>
-<div class="section" id="id1">
-<h3>Classes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>Classes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
@@ -90,8 +115,8 @@ clustering algorithms work alongside with a trajectory similarity measure from
 <div class="section" id="module-trajminer.similarity">
 <span id="trajminer-similarity-similarity"></span><h2><a class="reference internal" href="#module-trajminer.similarity" title="trajminer.similarity"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trajminer.similarity</span></code></a>: Similarity<a class="headerlink" href="#module-trajminer.similarity" title="Permalink to this headline">¶</a></h2>
 <p>Trajectory similarity measures.</p>
-<div class="section" id="id2">
-<h3>Classes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Classes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
@@ -106,6 +131,9 @@ clustering algorithms work alongside with a trajectory similarity measure from
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/trajminer.similarity.MSM.html#trajminer.similarity.MSM" title="trajminer.similarity.MSM"><code class="xref py py-obj docutils literal notranslate"><span class="pre">similarity.MSM</span></code></a>(dist_functions, thresholds, …)</p></td>
 <td><p>Multidimensional Similarity Measure.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/trajminer.similarity.MUITAS.html#trajminer.similarity.MUITAS" title="trajminer.similarity.MUITAS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">similarity.MUITAS</span></code></a>(dist_functions, …)</p></td>
+<td><p>Multiple-Aspect Trajectory Similarity Measure.</p></td>
 </tr>
 </tbody>
 </table>
@@ -128,8 +156,8 @@ clustering algorithms work alongside with a trajectory similarity measure from
 <div class="section" id="module-trajminer.utils">
 <span id="trajminer-utils-utils"></span><h2><a class="reference internal" href="#module-trajminer.utils" title="trajminer.utils"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trajminer.utils</span></code></a>: Utils<a class="headerlink" href="#module-trajminer.utils" title="Permalink to this headline">¶</a></h2>
 <p>Utilities for supporting other classes and resources of the library.</p>
-<div class="section" id="id3">
-<h3>Classes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>Classes<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
@@ -139,13 +167,24 @@ clustering algorithms work alongside with a trajectory similarity measure from
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/trajminer.utils.CSVTrajectoryLoader.html#trajminer.utils.CSVTrajectoryLoader" title="trajminer.utils.CSVTrajectoryLoader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.CSVTrajectoryLoader</span></code></a>(file[, sep, …])</p></td>
 <td><p>A trajectory data loader from a CSV file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/trajminer.utils.distance.discrete.html#trajminer.utils.distance.discrete" title="trajminer.utils.distance.discrete"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.distance.discrete</span></code></a>(x, y)</p></td>
+</tbody>
+</table>
+</div>
+<div class="section" id="id5">
+<h3>Functions<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/trajminer.utils.distance.discrete.html#trajminer.utils.distance.discrete" title="trajminer.utils.distance.discrete"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.distance.discrete</span></code></a>(x, y)</p></td>
 <td><p>Computes the discrete distance between two objects.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/trajminer.utils.distance.euclidean.html#trajminer.utils.distance.euclidean" title="trajminer.utils.distance.euclidean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.distance.euclidean</span></code></a>(x, y)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/trajminer.utils.distance.euclidean.html#trajminer.utils.distance.euclidean" title="trajminer.utils.distance.euclidean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.distance.euclidean</span></code></a>(x, y)</p></td>
 <td><p>Computes the euclidean distance between two objects described by an array of floats.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/trajminer.utils.distance.haversine.html#trajminer.utils.distance.haversine" title="trajminer.utils.distance.haversine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.distance.haversine</span></code></a>(x, y[, unit])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/trajminer.utils.distance.haversine.html#trajminer.utils.distance.haversine" title="trajminer.utils.distance.haversine"><code class="xref py py-obj docutils literal notranslate"><span class="pre">utils.distance.haversine</span></code></a>(x, y[, unit])</p></td>
 <td><p>Computes the haversine distance between two pairs of latitude and longitude.</p></td>
 </tr>
 </tbody>
@@ -155,8 +194,8 @@ clustering algorithms work alongside with a trajectory similarity measure from
 <div class="section" id="module-trajminer.preprocessing">
 <span id="trajminer-preprocessing-preprocessing"></span><h2><a class="reference internal" href="#module-trajminer.preprocessing" title="trajminer.preprocessing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trajminer.preprocessing</span></code></a>: Preprocessing<a class="headerlink" href="#module-trajminer.preprocessing" title="Permalink to this headline">¶</a></h2>
 <p>Preprocessing tools.</p>
-<div class="section" id="id4">
-<h3>Classes<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>Classes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-center">
 <colgroup>
 <col style="width: 10%" />
@@ -165,6 +204,29 @@ clustering algorithms work alongside with a trajectory similarity measure from
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/trajminer.preprocessing.OneHotEncoder.html#trajminer.preprocessing.OneHotEncoder" title="trajminer.preprocessing.OneHotEncoder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocessing.OneHotEncoder</span></code></a>()</p></td>
 <td><p>Encode trajectory features as the concatenation of the one-hot numeric array for each feature.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/trajminer.preprocessing.TrajectorySegmenter.html#trajminer.preprocessing.TrajectorySegmenter" title="trajminer.preprocessing.TrajectorySegmenter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocessing.TrajectorySegmenter</span></code></a>(attributes)</p></td>
+<td><p>Trajectory segmenter.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id7">
+<h3>Functions<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/trajminer.preprocessing.filter_trajectory_length.html#trajminer.preprocessing.filter_trajectory_length" title="trajminer.preprocessing.filter_trajectory_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocessing.filter_trajectory_length</span></code></a>(data, …)</p></td>
+<td><p>Removes trajectories by length criteria.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/trajminer.preprocessing.filter_label_size.html#trajminer.preprocessing.filter_label_size" title="trajminer.preprocessing.filter_label_size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocessing.filter_label_size</span></code></a>(data, …[, …])</p></td>
+<td><p>Removes trajectories corresponding to sets of labels that do not meet size criteria.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/trajminer.preprocessing.filter_duplicate_points.html#trajminer.preprocessing.filter_duplicate_points" title="trajminer.preprocessing.filter_duplicate_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocessing.filter_duplicate_points</span></code></a>(data, …)</p></td>
+<td><p>Removes duplicates of trajectory points according to the given criteria.</p></td>
 </tr>
 </tbody>
 </table>
@@ -179,37 +241,55 @@ clustering algorithms work alongside with a trajectory similarity measure from
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">trajminer</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-trajminer.classification"><code class="docutils literal notranslate"><span class="pre">trajminer.classification</span></code>: Classification</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-trajminer.clustering"><code class="docutils literal notranslate"><span class="pre">trajminer.clustering</span></code>: Clustering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-trajminer.similarity"><code class="docutils literal notranslate"><span class="pre">trajminer.similarity</span></code>: Similarity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-trajminer.utils"><code class="docutils literal notranslate"><span class="pre">trajminer.utils</span></code>: Utils</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-trajminer.preprocessing"><code class="docutils literal notranslate"><span class="pre">trajminer.preprocessing</span></code>: Preprocessing</a></li>
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">API Reference</a><ul>
+<li><a class="reference internal" href="#module-trajminer"><code class="docutils literal notranslate"><span class="pre">trajminer</span></code>: Base</a><ul>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-trajminer.classification"><code class="docutils literal notranslate"><span class="pre">trajminer.classification</span></code>: Classification</a><ul>
+<li><a class="reference internal" href="#id1">Classes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-trajminer.clustering"><code class="docutils literal notranslate"><span class="pre">trajminer.clustering</span></code>: Clustering</a><ul>
+<li><a class="reference internal" href="#id2">Classes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-trajminer.similarity"><code class="docutils literal notranslate"><span class="pre">trajminer.similarity</span></code>: Similarity</a><ul>
+<li><a class="reference internal" href="#id3">Classes</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-trajminer.utils"><code class="docutils literal notranslate"><span class="pre">trajminer.utils</span></code>: Utils</a><ul>
+<li><a class="reference internal" href="#id4">Classes</a></li>
+<li><a class="reference internal" href="#id5">Functions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-trajminer.preprocessing"><code class="docutils literal notranslate"><span class="pre">trajminer.preprocessing</span></code>: Preprocessing</a><ul>
+<li><a class="reference internal" href="#id6">Classes</a></li>
+<li><a class="reference internal" href="#id7">Functions</a></li>
 </ul>
 </li>
 </ul>
-
+</li>
+</ul>
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
       <li>Previous: <a href="../index.html" title="previous chapter">trajminer’s docs</a></li>
-      <li>Next: <a href="generated/trajminer.classification.KNearestNeighbors.html" title="next chapter"><code class="docutils literal notranslate"><span class="pre">trajminer.classification</span></code>.KNearestNeighbors</a></li>
+      <li>Next: <a href="generated/trajminer.TrajectoryData.html" title="next chapter"><code class="docutils literal notranslate"><span class="pre">trajminer</span></code>.TrajectoryData</a></li>
   </ul></li>
 </ul>
 </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/modules/classes.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <div class="searchformwrapper">
@@ -220,20 +300,12 @@ clustering algorithms work alongside with a trajectory similarity measure from
     </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
         </div>
       </div>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2018, Lucas.
+      &copy;2018-2019, The Trajminer Developers.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.0b1</a>

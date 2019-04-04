@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>trajminer.preprocessing.TrajectorySegmenter &#8212; trajminer 0.1.0.a1 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="trajminer.preprocessing.filter_trajectory_length" href="trajminer.preprocessing.filter_trajectory_length.html" />
+    <link rel="prev" title="trajminer.preprocessing.OneHotEncoder" href="trajminer.preprocessing.OneHotEncoder.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137701581-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-137701581-1');
+    </script>
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="trajminer-preprocessing-trajectorysegmenter">
+<h1><a class="reference internal" href="../classes.html#module-trajminer.preprocessing" title="trajminer.preprocessing"><code class="xref py py-mod docutils literal notranslate"><span class="pre">trajminer.preprocessing</span></code></a>.TrajectorySegmenter<a class="headerlink" href="#trajminer-preprocessing-trajectorysegmenter" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="trajminer.preprocessing.TrajectorySegmenter">
+<em class="property">class </em><code class="descclassname">trajminer.preprocessing.</code><code class="descname">TrajectorySegmenter</code><span class="sig-paren">(</span><em>attributes</em>, <em>thresholds=None</em>, <em>mode='strict'</em>, <em>ignore_missing=False</em>, <em>n_jobs=1</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.preprocessing.TrajectorySegmenter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trajectory segmenter.</p>
+<dl>
+<dt>attributes<span class="classifier">array-like</span></dt><dd><p>The attributes of a trajectory dataset.</p>
+</dd>
+<dt>thresholds<span class="classifier">dict (default=None)</span></dt><dd><p>A dictionary with callables for the attributes that will be used in
+the segmentation (e.g. dict[‘time’] is the callable for attribute
+<cite>time</cite>). A callable takes as input two attribute values and outputs
+<cite>True</cite> if the trajectory should be segmented and <cite>False</cite> otherwise.</p>
+<p>For instance, suppose we have a dataset with a <cite>time</cite> attribute which
+represents the minutes from midnight when a trajectory point was
+recorded. If we’d like to segment trajectories every time there is a
+distance of more than 60 minutes between points, the callable for time
+would be defined as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">60</span> <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="n">x</span> <span class="k">else</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">-</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">60</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">None</span></code>, then trajectories are segmented whenever two attribute
+values are different (this behavior changes according to the <cite>mode</cite>
+parameter).</p>
+</dd>
+<dt>mode<span class="classifier">str (default=’strict’)</span></dt><dd><p>A string in {‘strict’, ‘any’}:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If ‘strict’, then trajectories are segmented when thresholds are
+<cite>True</cite> for all attributes.</p></li>
+<li><p>If ‘any’, then trajectories are segmented when at least one
+threshold is <cite>True</cite> for any attribute.</p></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt>ignore_missing<span class="classifier">bool (default=False)</span></dt><dd><p>If <cite>False</cite>, then trajectories are segmented whenever a missing value is
+found (this behavior changes according to the <cite>mode</cite> parameter).</p>
+</dd>
+<dt>n_jobs<span class="classifier">int (default=1)</span></dt><dd><p>The number of parallel jobs.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="trajminer.preprocessing.TrajectorySegmenter.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>attributes</em>, <em>thresholds=None</em>, <em>mode='strict'</em>, <em>ignore_missing=False</em>, <em>n_jobs=1</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.preprocessing.TrajectorySegmenter.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="trajminer.preprocessing.TrajectorySegmenter.fit_transform">
+<code class="descname">fit_transform</code><span class="sig-paren">(</span><em>X</em><span class="sig-paren">)</span><a class="headerlink" href="#trajminer.preprocessing.TrajectorySegmenter.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit and segment trajectories.</p>
+<dl>
+<dt>X<span class="classifier"><a class="reference internal" href="trajminer.TrajectoryData.html#trajminer.TrajectoryData" title="trajminer.TrajectoryData"><code class="xref py py-class docutils literal notranslate"><span class="pre">trajminer.TrajectoryData</span></code></a></span></dt><dd><p>Input dataset to segment.</p>
+</dd>
+</dl>
+<dl>
+<dt>X_out<span class="classifier"><a class="reference internal" href="trajminer.TrajectoryData.html#trajminer.TrajectoryData" title="trajminer.TrajectoryData"><code class="xref py py-class docutils literal notranslate"><span class="pre">trajminer.TrajectoryData</span></code></a></span></dt><dd><p>Segmented dataset.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clearer"></div></div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../classes.html">API Reference</a><ul>
+      <li>Previous: <a href="trajminer.preprocessing.OneHotEncoder.html" title="previous chapter"><code class="docutils literal notranslate"><span class="pre">trajminer.preprocessing</span></code>.OneHotEncoder</a></li>
+      <li>Next: <a href="trajminer.preprocessing.filter_trajectory_length.html" title="next chapter"><code class="docutils literal notranslate"><span class="pre">trajminer.preprocessing</span></code>.filter_trajectory_length</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/modules/generated/trajminer.preprocessing.TrajectorySegmenter.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018-2019, The Trajminer Developers.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.0b1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/modules/generated/trajminer.preprocessing.TrajectorySegmenter.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
