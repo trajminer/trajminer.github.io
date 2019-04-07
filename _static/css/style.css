@@ -1,0 +1,25 @@
+#header {
+	color: #555555;
+	background-color: white;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+#footer {
+	background-color: white;
+	padding-top: 2rem;
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+.action-btn .iconify {
+	margin-bottom: 1rem;
+}
+
+.btn.action-btn {
+	color: #777777;
+}
+
+.btn.action-btn :hover {
+	color: #222222;
+}
